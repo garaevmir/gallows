@@ -12,7 +12,12 @@ FetchContent_Declare(SFML
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(gallows main.cpp gallows.cpp)
+add_executable(
+        gallows
+        src/main.cpp
+        src/gallows.cpp
+
+)
 target_link_libraries(gallows PRIVATE sfml-graphics)
 target_compile_features(gallows PRIVATE cxx_std_17)
 
