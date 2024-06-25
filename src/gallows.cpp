@@ -174,7 +174,7 @@ void gallows() {
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "Gallows");
     sf::Text text;
     sf::Font font;
-    font.loadFromFile("../../silkscreen.ttf");
+    font.loadFromFile("../../assets/silkscreen.ttf");
     text.setFont(font);
     text.setCharacterSize(20);
 
