@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <ctime>
+#include <direct.h>
 
 const std::vector<std::string> easy_words = {
         "car", "dog", "cat", "book", "pen", "chair", "table", "phone", "sun", "moon",
@@ -163,6 +164,14 @@ void choose_mode(sf::RenderWindow& window, int& mode, sf::Text& text) {
     }
 }
 
+std::string get_font_path() {
+    char get_path[1024];
+    getcwd(get_path, sizeof(get_path));
+    std::string path = get_path;
+    path.resize(path.find("gallows") + 7);
+    return path + "\\assets\\silkscreen.ttf";
+}
+
 void gallows() {
     bool is_end = false;
     std::srand(static_cast<unsigned>(std::time(nullptr)));
@@ -174,7 +183,7 @@ void gallows() {
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "Gallows");
     sf::Text text;
     sf::Font font;
-    font.loadFromFile("../../assets/silkscreen.ttf");
+    font.loadFromFile(get_font_path());
     text.setFont(font);
     text.setCharacterSize(20);
 
